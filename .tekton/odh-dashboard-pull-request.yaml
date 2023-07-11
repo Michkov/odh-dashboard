@@ -30,6 +30,13 @@ spec:
     value: .
   - name: revision
     value: '{{revision}}'
+  taskRunSpecs:
+  - pipelineTaskName: build-container
+    stepOverrides:
+    - name: build
+      resources:
+        limits:
+          memory: 5Gi
   pipelineSpec:
     finally:
     - name: show-sbom
